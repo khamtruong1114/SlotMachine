@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useSpin } from "../context/useSpin";
 
 const StyledButton = styled.button`
   padding: 20px;
@@ -9,9 +10,13 @@ const StyledButton = styled.button`
   color: blue;
 `;
 
-function SpinButton({ isSpinning, handleSpinButton, messageWinner }) {
+function SpinButton() {
+  const { balance, isSpinning, handleSpinButton, messageWinner } = useSpin();
   return (
-    <StyledButton disabled={isSpinning} onClick={handleSpinButton}>
+    <StyledButton
+      disabled={isSpinning || balance === 0 ? true : false}
+      onClick={handleSpinButton}
+    >
       {messageWinner ? "Play again" : "SPIN"}
     </StyledButton>
   );

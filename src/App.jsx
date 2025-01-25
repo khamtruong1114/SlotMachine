@@ -1,5 +1,8 @@
 import "./App.css";
+import Balance from "./components/Balance";
+import Bet from "./components/Bet";
 import Reels from "./components/Reels";
+import { SpinProvider } from "./context/useSpin";
 
 function App() {
   return (
@@ -8,7 +11,11 @@ function App() {
         <h1>SLOT MACHINE</h1>
       </header>
       <main>
-        <Reels />
+        <SpinProvider>
+          <Reels />
+          <Balance />
+          <Bet />
+        </SpinProvider>
       </main>
       <footer>Build4Fun</footer>
     </div>
