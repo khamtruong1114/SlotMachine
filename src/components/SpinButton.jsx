@@ -8,6 +8,14 @@ const StyledButton = styled.button`
   font-size: 2em;
   background-color: ${(props) => (props.disabled === false ? "red" : "gray")};
   color: blue;
+  &:hover {
+    border-top: 2px solid blueviolet;
+    border-left: 2px solid blueviolet;
+    border-bottom: 2px solid rgb(238, 103);
+    border-right: 2px solid rgb(238, 103);
+    box-shadow: rgba(240, 46, 170, 0.4) 5px 5px,
+      rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px;
+  }
 `;
 
 function SpinButton() {
