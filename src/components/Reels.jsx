@@ -64,6 +64,16 @@ export default function Reels() {
             <Slot index={index} slotIndex={slotIndex} items={items} />
           ))}
         </StyledReel>
+        <StyledReel>
+          {reel3.map((slotIndex, index) => (
+            <Slot index={index} slotIndex={slotIndex} items={items} />
+          ))}
+        </StyledReel>
+        <StyledReel>
+          {reel3.map((slotIndex, index) => (
+            <Slot index={index} slotIndex={slotIndex} items={items} />
+          ))}
+        </StyledReel>
       </StyledReelContainer>
       <SpinButton />
     </>
