@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useSpin } from "../context/useSpin";
+import { useSpin } from "./SlotMachine";
 
 const StyledButton = styled.button`
   padding: 20px;
@@ -13,13 +13,13 @@ const StyledButton = styled.button`
     border-left: 2px solid blueviolet;
     border-bottom: 2px solid rgb(238, 103);
     border-right: 2px solid rgb(238, 103);
-    box-shadow: rgba(240, 46, 170, 0.4) 5px 5px,
-      rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px;
+    box-shadow: rgba(30, 8, 78, 0.4) 5px 5px, rgba(46, 11, 95, 0.3) 10px 10px,
+      rgba(72, 12, 96, 0.2) 15px 15px;
   }
 `;
 
 function SpinButton() {
-  const { balance, isSpinning, handleSpinButton, messageWinner } = useSpin();
+  const { isSpinning, balance, messageWinner, handleSpinButton } = useSpin();
   return (
     <StyledButton
       disabled={isSpinning || balance === 0 ? true : false}

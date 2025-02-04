@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { formatCurrency } from "../utils/helpers";
-import { useSpin } from "../context/useSpin";
+import { useSpin } from "./SlotMachine";
 
 const Label = styled.label`
   font-weight: 500;
