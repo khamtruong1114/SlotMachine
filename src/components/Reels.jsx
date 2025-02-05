@@ -1,7 +1,22 @@
 import styled from "styled-components";
-import Slot from "./Slot";
+import { Slot } from "./Slot";
+
 
 import { useSpin } from "./SlotMachine";
+
+const StyledReelContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #f1f1f1;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+  width: 50%;
+  margin-top: 50px;
+`;
 
 const StyledReel = styled.div`
   display: flex;
@@ -14,38 +29,20 @@ const StyledReel = styled.div`
   border-radius: 10px;
 `;
 
-const StyledMessage = styled.h1`
-  font-size: 2em;
-  color: red;
-  text-align: center;
-  font-family: "Roboto", sans-serif;
-  margin-top: 20px;
-  margin-bottom: 20px;
-`;
 
-export default function Reels() {
-  const { topRow, items, messageWinner, middleRow, bottomRow } = useSpin();
+export const Reels = (props) => {
+  const { reelValues } = props;
+  console.log('reelValues', reelValues);
+  // const { topRow, items, messageWinner, middleRow, bottomRow } = useSpin();
 
   return (
-    <>
-      <StyledMessage>{messageWinner}</StyledMessage>
-
+    <StyledReelContainer>
       <StyledReel>
-        {topRow.map((slotIndex, index) => (
-          <Slot key={index} index={index} slotIndex={slotIndex} items={items} />
-        ))}
+        {reelValues?.map((value, i) => {
+          console.log('i', i);
+          return <Slot key={value} value={value} index={i} />;
+        }) }
       </StyledReel>
-
-      <StyledReel>
-        {middleRow.map((slotIndex, index) => (
-          <Slot key={index} index={index} slotIndex={slotIndex} items={items} />
-        ))}
-      </StyledReel>
-      <StyledReel>
-        {bottomRow.map((slotIndex, index) => (
-          <Slot key={index} index={index} slotIndex={slotIndex} items={items} />
-        ))}
-      </StyledReel>
-    </>
+    </StyledReelContainer>
   );
 }
