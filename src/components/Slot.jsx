@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import seven from "../assets/images/7.jpg";
+import cherry from "../assets/images/cherry.jpg";
+import star from "../assets/images/star.jpg";
 
 const StyledSlot = styled.img`
   width: 100%;
@@ -9,9 +12,15 @@ const StyledSlot = styled.img`
   height: 80px;
 `;
 
-function Slot({ index, slotIndex, items }) {
+const items = [seven, cherry, star];
+
+export const Slot = ({ value, index }) => {
+  console.log('index', index);
+  console.log('value', value);
+  const slotIndex = value[index];
+  console.log('slotIndex', slotIndex);
   return (
-    <StyledSlot key={index} src={items[slotIndex]} alt={`item-${slotIndex}`} />
+    <StyledSlot src={items[slotIndex]} alt={`item-${slotIndex}`} />
   );
 }
 
