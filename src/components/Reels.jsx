@@ -5,7 +5,7 @@ import { useSpin } from "./SlotMachine";
 
 const StyledReel = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
   gap: 1px;
   align-items: center;
   justify-content: center;

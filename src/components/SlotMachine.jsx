@@ -37,12 +37,22 @@ export function SpinProvider({ children }) {
   const [betAmount, setBetAmount] = useState(1);
 
   function handleSpinButton() {
+    const spinDuration = 2500; // How long it should "spin"
+    const spinInterval = 20; // Speed of changing images
+
+    const interval = setInterval(() => {
+      setTopRow(randomIndex());
+      setMiddleRow(randomIndex());
+      setBottomRow(randomIndex());
+    }, spinInterval);
+
     const newTopRow = randomIndex();
     const newMiddleRow = [topRow[2], topRow[1], topRow[0]];
     const newBottomRow = [topRow[1], topRow[0], topRow[2]];
     setMessageWinner("");
     setIsSpinning(true);
     setTimeout(() => {
+      clearInterval(interval);
       setTopRow(newTopRow);
       setMiddleRow(newMiddleRow);
       setBottomRow(newBottomRow);
@@ -51,7 +61,7 @@ export function SpinProvider({ children }) {
       setBalance((prevBalance) =>
         isWinner ? prevBalance + betAmount * 2 : prevBalance - betAmount
       );
-    }, 2000);
+    }, spinDuration);
 
     function checkWin(topRow, middleRow, bottomRow) {
       if (topRow[0] === topRow[1] && topRow[1] === topRow[2]) {
