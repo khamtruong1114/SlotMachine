@@ -37,8 +37,8 @@ export const Reels = (props) => {
     <StyledReelContainer>
       {reelValues.map((row, rowIndex) => (
         <StyledReel key={rowIndex}>
-          {row.map((value, colIndex) => (
-            <Slot key={colIndex} value={value} />
+          {row.map((value, i) => (
+            <Slot key={i} value={value} />
           ))}
         </StyledReel>
       ))}
