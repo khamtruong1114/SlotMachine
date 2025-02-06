@@ -14,14 +14,10 @@ const StyledSlot = styled.img`
 
 const items = [seven, cherry, star];
 
-export const Slot = ({ value, index }) => {
-  console.log('index', index);
-  console.log('value', value);
-  const slotIndex = value[index];
-  console.log('slotIndex', slotIndex);
-  return (
-    <StyledSlot src={items[slotIndex]} alt={`item-${slotIndex}`} />
-  );
-}
-
-export default Slot;
+export const Slot = ({ value }) => {
+  console.log("index", index);
+  console.log("value", value);
+  // const slotIndex = value[index];
+  // console.log("slotIndex", slotIndex);
+  return <StyledSlot src={items[value]} alt={`item-${value}`} />;
+};

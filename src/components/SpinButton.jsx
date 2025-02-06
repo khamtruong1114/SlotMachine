@@ -18,8 +18,8 @@ const StyledButton = styled.button`
   }
 `;
 
-function SpinButton() {
-  const { isSpinning, balance, messageWinner, handleSpinButton } = useSpin();
+function SpinButton(props) {
+  const { handleSpinButton, isSpinning, balance, messageWinner } = props;
   return (
     <StyledButton
       disabled={isSpinning || balance === 0 ? true : false}
