@@ -15,7 +15,6 @@ const StyledSlot = styled.img`
 const items = [seven, cherry, star];
 
 export const Slot = ({ value }) => {
-  console.log("index", index);
   console.log("value", value);
   // const slotIndex = value[index];
   // console.log("slotIndex", slotIndex);
