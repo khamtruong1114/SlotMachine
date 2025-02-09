@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { useSpin } from "./SlotMachine";
 
 const StyledButton = styled.button`
   padding: 20px;
@@ -22,7 +21,7 @@ function SpinButton(props) {
   const { handleSpinButton, isSpinning, balance, messageWinner } = props;
   return (
     <StyledButton
-      disabled={isSpinning || balance === 0 ? true : false}
+      disabled={isSpinning || balance >= 0}
       onClick={handleSpinButton}
     >
       {messageWinner ? "Play again" : "SPIN"}

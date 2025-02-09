@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import { Slot } from "./Slot";
 
-import { useSpin } from "./SlotMachine";
-
 const StyledReelContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -30,8 +28,6 @@ const StyledReel = styled.div`
 
 export const Reels = (props) => {
   const { reelValues } = props;
-  console.log("reelValues", reelValues);
-  // const { topRow, items, messageWinner, middleRow, bottomRow } = useSpin();
 
   return (
     <StyledReelContainer>
