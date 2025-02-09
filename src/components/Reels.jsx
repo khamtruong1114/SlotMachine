@@ -1,9 +1,6 @@
 import styled from "styled-components";
 import { Slot } from "./Slot";
 
-
-import { useSpin } from "./SlotMachine";
-
 const StyledReelContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -20,7 +17,7 @@ const StyledReelContainer = styled.div`
 
 const StyledReel = styled.div`
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   gap: 1px;
   align-items: center;
   justify-content: center;
@@ -29,20 +26,18 @@ const StyledReel = styled.div`
   border-radius: 10px;
 `;
 
-
 export const Reels = (props) => {
   const { reelValues } = props;
-  console.log('reelValues', reelValues);
-  // const { topRow, items, messageWinner, middleRow, bottomRow } = useSpin();
 
   return (
     <StyledReelContainer>
-      <StyledReel>
-        {reelValues?.map((value, i) => {
-          console.log('i', i);
-          return <Slot key={value} value={value} index={i} />;
-        }) }
-      </StyledReel>
+      {reelValues.map((row, rowIndex) => (
+        <StyledReel key={rowIndex}>
+          {row.map((value, i) => (
+            <Slot key={i} value={value} />
+          ))}
+        </StyledReel>
+      ))}
     </StyledReelContainer>
   );
-}
+};

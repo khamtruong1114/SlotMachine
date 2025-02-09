@@ -1,7 +1,6 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { useState } from "react";
 
 import { Reels } from "./Reels";
-
 import styled from "styled-components";
 import { randomIndex } from "./utils";
 
@@ -15,20 +14,17 @@ const StyledMessage = styled.h1`
 `;
 
 const SlotMachine = () => {
-  // Initialize with top, middle, bottom row with random index
   const [topRow, setTopRow] = useState(randomIndex());
   const [middleRow, setMiddleRow] = useState(randomIndex());
   const [bottomRow, setBottomRow] = useState(randomIndex());
   const [messageWinner, setMessageWinner] = useState("");
+  const [isSpinning, setIsSpinning] = useState(false);
 
   const reelValues = [topRow, middleRow, bottomRow];
-  console.log("reelValues", reelValues);
 
   return (
     <div className="slot-machine">
-      // Message
       <StyledMessage>{messageWinner}</StyledMessage>
-      // Reels
       <Reels reelValues={reelValues} />
     </div>
   );
