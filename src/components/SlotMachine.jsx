@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 
 import { Reels } from "./Reels";
-
 import styled from "styled-components";
 import { randomIndex } from "./utils";
-import SpinButton from "./SpinButton";
 
 const StyledMessage = styled.h1`
   font-size: 2em;
@@ -24,25 +22,10 @@ const SlotMachine = () => {
 
   const reelValues = [topRow, middleRow, bottomRow];
 
-  function handleSpinButton() {
-    setIsSpinning(true);
-
-    setMessageWinner("");
-
-    setBottomRow(middleRow);
-    setMiddleRow(topRow);
-    setTopRow(randomIndex());
-
-    setIsSpinning(false);
-  }
-
   return (
     <div className="slot-machine">
       <StyledMessage>{messageWinner}</StyledMessage>
-
       <Reels reelValues={reelValues} />
-
-      <SpinButton handleSpinButton={handleSpinButton} isSpinning={isSpinning} />
     </div>
   );
 };
